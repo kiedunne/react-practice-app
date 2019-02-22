@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 
 class Counter extends Component {
   state = {
-    count: this.props.value,
+    count: this.props.counter.value,
     imageUrl: 'https://picsum.photos/200',
     tags: ['tag1', 'tag2', 'tag3']
   };
@@ -20,14 +20,14 @@ handleIncrement = () => {
     <React.Fragment>
       { this.props.children }
       <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-      
+
       <button
         onClick={this.handleIncrement}
         className='btn btn-secondary btn-nm'>Increment
       </button>
 
       <button
-        onClick= { () => this.props.onDelete(this.props.id) }
+        onClick= { () => this.props.onDelete(this.props.counter.id) }
         className = "btn btn-danger btn-nm m-2">Delete
       </button>
 
