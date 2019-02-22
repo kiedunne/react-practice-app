@@ -11,13 +11,26 @@ class Counter extends Component {
 
 handleIncrement = () => {
   this.setState( { count: this.state.count +1})
+  console.log(this.props)
 };
   render() {
+
     React.createElement('div')
     return (
     <React.Fragment>
+      { this.props.children }
       <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-      <button onClick={this.handleIncrement}className='btn btn-secondary btn-nm'>Increment</button>
+      
+      <button
+        onClick={this.handleIncrement}
+        className='btn btn-secondary btn-nm'>Increment
+      </button>
+
+      <button
+        onClick= { () => this.props.onDelete(this.props.id) }
+        className = "btn btn-danger btn-nm m-2">Delete
+      </button>
+
       <ul>
         { this.state.tags.map(tag => <li key={tag}>{ tag }</li>) }
       </ul>
